@@ -1,27 +1,30 @@
-import React, { useState, useRef, useEffect,} from 'react';
+import React, { useState, useRef, useEffect, } from 'react';
 import axios from 'axios';
-import ImagePeople from '../../assets/people.svg';
 import Arrow from '../../assets/arrow.svg'
 import {
   Container,
-  Image,
   ContainerItens,
   H1,
   InputLabel,
   Input,
   Button,
+  ContainerButton
+
 } from './styles';
 
 
 function App() {
   const [users, setUsers] = useState([]);
   const inputName = useRef();
-  const inputAge = useRef();
+  const inputMatricula = useRef();
+  const inputCpf = useRef();
+  const inputEndereço = useRef();
+  const inputEmail = useRef();
 
   async function addNewUser() {
-    const {data: newUser} = await axios.post("http://localhost:3001/users", 
-    { name: inputName.current.value, age: inputAge.current.value, });
-    
+    const { data: newUser } = await axios.post("http://localhost:3001/users",
+      { name: inputName.current.value, matricula: inputMatricula.current.value, cpf: inputCpf.current.value, address: inputEndereço.current.value });
+
     setUsers([...users, newUser]);
 
   }
@@ -37,17 +40,30 @@ function App() {
 
   return (
     <Container>
-      <Image alt="logo-imagem" src={ImagePeople} />
       <ContainerItens>
-        <H1>Olá!</H1>
+        <H1>Cadastro de Alunos</H1>
 
         <InputLabel>Nome</InputLabel>
         <Input ref={inputName} placeholder="Nome" />
 
-        <InputLabel>Idade</InputLabel>
-        <Input ref={inputAge} placeholder="Idade" />
+        <InputLabel>Matricula</InputLabel>
+        <Input ref={inputMatricula} placeholder="Matricula" />
+
+        <InputLabel>CPF</InputLabel>
+        <Input ref={inputCpf} placeholder="Cpf" />
+
+        <InputLabel>E-mail</InputLabel>
+        <Input ref={inputEmail} placeholder="E-mail" />
+
+        <InputLabel>Endereço</InputLabel>
+        <Input ref={inputEndereço} placeholder="Endereço" />
 
         <Button to={"/usuarios"} onClick={addNewUser} >Cadastrar <img alt="seta" src={Arrow} /></Button>
+        <ContainerButton>
+          <Button to={"/usuarios"}  >Editar </Button>
+          <Button to={"/usuarios"}  >Excluir</Button>
+        </ContainerButton>
+
 
       </ContainerItens>
     </Container>)

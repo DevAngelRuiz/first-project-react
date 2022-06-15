@@ -9,6 +9,7 @@ display: flex;
 flex-direction: column;
 align-items: center;
 gap: 40px;
+padding-top: 20px;
 
 `;
 
@@ -19,9 +20,11 @@ margin-top: 30px;
 export const ContainerItens = styled.div`
 background: linear-gradient(157.44deg, rgba(255, 255, 255, 0.6) 0.84%, rgba(255, 255, 255, 0.6) 0.85%, rgba(255, 255, 255, 0.15) 100%);
 border-radius: 61px 61px 0px 0px;
-padding: 50px 36px;
+padding: 50px 50px;
 display: flex;
 flex-direction: column;
+height: 100vh;
+
 
 
 
@@ -68,7 +71,7 @@ height: 74px;
 background: rgba(0, 0, 0, 0.8);
 border-radius: 14px;
 border: none;
-margin-top: 132px;
+margin-top: 40px;
 font-style: normal;
 font-weight: 700;
 font-size: 17px;
@@ -76,6 +79,7 @@ line-height: 28px;
 color: #FFFFFF;
 cursor: pointer;
 display: flex;
+flex-direction: row;
 align-items: center;
 justify-content: center;
 gap: 15px;
@@ -116,7 +120,25 @@ button {
     border: none; 
     background: none;
     cursor: pointer;
+    
 }
-
-
 `;
+
+export const ContainerButton = styled(Link)`
+display: flex;
+justify-content: center;
+align-items: center;
+width: 340px;
+height: 74px;
+gap: 20px;
+
+
+
+
+`
+
+
+
+
+
+

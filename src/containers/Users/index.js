@@ -1,15 +1,13 @@
 import React, { useState, useEffect,} from 'react';
 import axios from 'axios';
-import Avatar from '../../assets/avatar.svg';
 import Arrow from '../../assets/arrow.svg'
 import Trash from '../../assets/trash.svg'
 import {
   Container,
-  Image,
   ContainerItens,
   H1,
   Button,
-  User
+  User,
 } from './styles';
 
 
@@ -35,9 +33,9 @@ function Users() {
 
   return (
     <Container>
-      <Image alt="logo-imagem" src={Avatar} />
+
       <ContainerItens>
-        <H1>Usuários</H1>
+        <H1>Cadastro Aluno</H1>
 
         <ul>
           {users.map((user) => (
@@ -49,6 +47,7 @@ function Users() {
           ))}
         </ul>
         <Button to={"/"} >Voltar <img alt="seta" src={Arrow} /></Button>
+      
 
       </ContainerItens>
     </Container>)
